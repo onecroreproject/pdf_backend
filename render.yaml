@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: pdf_backend
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api_backend:app --host 0.0.0.0 --port $PORT --workers 1
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "true"
+      - key: MONGO_URI
+        value: "mongodb+srv://kdkr0357:ybiC5Nhakp4ifWx5@lung-cancer-prediction.rlhawlj.mongodb.net/pdf_app?retryWrites=true&w=majority"
+      - key: SMTP_USER
+        value: "dineshdlktechnologies@gmail.com"
+      - key: SMTP_PASS
+        value: "njccktqkrgkfbyvc"
